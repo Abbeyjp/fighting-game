@@ -1,0 +1,28 @@
+.btn {
+  cursor: pointer;
+  padding: 5px 15px;
+  background: var(--light-color);
+  border-color: black;
+  font-size: 17px;
+  position: center;
+  color: red;
+}
+
+#fcontainer {
+
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-color: yellow;
+}
+
+.join-container {
+  background-color: red;
+  padding: 5px 15px;
+
+}
+
+body {
+  font-size: 22px;
+
+}
