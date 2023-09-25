@@ -17,12 +17,19 @@
 }
 
 .join-container {
-  background-color: red;
+
   padding: 5px 15px;
+  font-size: 22px;
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
 
 }
 
 body {
-  font-size: 22px;
+  align-items: center;
+  margin: auto;
+  width: 55%;
+  border: 3px solid green;
+  padding: 10%;
 
 }

@@ -4,6 +4,7 @@ const c = canvas.getContext('2d')
 canvas.width = 1024
 canvas.height = 576
 
+
 c.fillRect(0, 0, canvas.width, canvas.height)
 
 const gravity = 0.7
@@ -43,8 +44,8 @@ const player = new Fighter({
   framesMax: 8,
   scale: 2.5,
   offset: {
-    x: 215,
-    y: 157
+    x: 0,
+    y: 350
   },
   sprites: {
     idle: {
@@ -100,40 +101,40 @@ const enemy = new Fighter({
     x: -50,
     y: 0
   },
-  imageSrc: './asset/img/Fantasy Warrior/Idle.png',
+  imageSrc: './asset/img/evilWizard/Idle.png',
   framesMax: 4,
   scale: 2.5,
   offset: {
-    x: 215,
-    y: 167
+    x: 0,
+    y: 350
   },
   sprites: {
     idle: {
-      imageSrc: './asset/img/Fantasy Warrior/Idle.png',
-      framesMax: 4
+      imageSrc: './asset/img/evilWizard/Idle.png',
+      framesMax: 8
     },
     run: {
-      imageSrc: './asset/img/Fantasy Warrior/Run.png',
+      imageSrc: './asset/img/evilWizard/Run.png',
       framesMax: 8
     },
     jump: {
-      imageSrc: './asset/img/Fantasy Warrior/Jump.png',
+      imageSrc: './asset/img/evilWizard/Jump.png',
       framesMax: 2
     },
     fall: {
-      imageSrc: './asset/img/Fantasy Warrior/Fall.png',
+      imageSrc: './asset/img/evilWizard/Fall.png',
       framesMax: 2
     },
     attack1: {
-      imageSrc: './asset/img/Fantasy Warrior/Attack1.png',
+      imageSrc: './asset/img/evilWizard/Attack1.png',
       framesMax: 4
     },
     takeHit: {
-      imageSrc: './asset/img/Fantasy Warrior/Take hit.png',
+      imageSrc: './asset/img/evilWizard/Take hit.png',
       framesMax: 3
     },
     death: {
-      imageSrc: './asset/img/Fantasy Warrior/Death.png',
+      imageSrc: './asset/img/evilWizard/Death.png',
       framesMax: 7
     }
   },
