@@ -3,8 +3,14 @@ const c = canvas.getContext('2d')
 
 canvas.width = 1024
 canvas.height = 576
-
-
+const searchParams = new URLSearchParams(window.location.search);
+const nme = searchParams.has('username');
+const fgt = searchParams.has('room');
+window.tranfer(nme, fgt);
+function tranfer(a, b) {
+  fgt='asset/img/'+a+b;
+  
+}
 c.fillRect(0, 0, canvas.width, canvas.height)
 
 const gravity = 0.7
