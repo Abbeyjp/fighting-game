@@ -4,12 +4,38 @@ const c = canvas.getContext('2d')
 canvas.width = 1024
 canvas.height = 576
 const searchParams = new URLSearchParams(window.location.search);
-const nme = searchParams.has('username');
-const fgt = searchParams.has('room');
-window.tranfer(nme, fgt);
-function tranfer(a, b) {
-  fgt='asset/img/'+a+b;
-  
+var currentLocation = window.location;
+
+let params = new URL(currentLocation).searchParams;
+let i = 0;
+let nme = searchParams.get('username');
+let fgt = searchParams.get('room');
+console.log(fgt);
+let fight = [[8, 7, 2, 2, 8, 3, 8], [7, 7, 3, 3, 10, 3, 8], [7, 9, 3, 3, 11, 4, 8], [6, 6, 2, 2, 4, 4, 8], [6, 11, 3, 3, 10, 3, 8]];
+window.tranfer(fgt);
+
+
+
+function tranfer(b) {
+
+  switch (b) {
+    case "evilwizard":
+      i = 0;
+      break;
+    case "fantasywarrior":
+      i = 1;
+      break;
+    case "heroknight":
+      i = 2;
+      break;
+    case "martialhero":
+      i = 3;
+      break;
+    case "wizard":
+      i = 4;
+      break;
+  }
+
 }
 c.fillRect(0, 0, canvas.width, canvas.height)
 
@@ -46,8 +72,8 @@ const player = new Fighter({
     x: 0,
     y: 0
   },
-  imageSrc: './asset/img/evilWizard/Idle.png',
-  framesMax: 8,
+  imageSrc: './asset/img/' + fgt + '/Idle.png',
+  framesMax: 4,
   scale: 2.5,
   offset: {
     x: 0,
@@ -55,32 +81,32 @@ const player = new Fighter({
   },
   sprites: {
     idle: {
-      imageSrc: './asset/img/evilWizard/Idle.png',
-      framesMax: 8
+      imageSrc: './asset/img/' + fgt + '/Idle.png',
+      framesMax: fight[i][4]
     },
     run: {
-      imageSrc: './asset/img/evilWizard/Run.png',
-      framesMax: 8
+      imageSrc: './asset/img/' + fgt + '/Run.png',
+      framesMax: fight[i][6]
     },
     jump: {
-      imageSrc: './asset/img/evilWizard/Jump.png',
-      framesMax: 2
+      imageSrc: './asset/img/' + fgt + '/Jump.png',
+      framesMax: fight[i][2]
     },
     fall: {
-      imageSrc: './asset/img/evilWizard/Fall.png',
-      framesMax: 2
+      imageSrc: './asset/img/' + fgt + '/Fall.png',
+      framesMax: fight[i][3]
     },
     attack1: {
-      imageSrc: './asset/img/evilWizard/Attack1.png',
-      framesMax: 6
+      imageSrc: './asset/img/' + fgt + '/Attack1.png',
+      framesMax: fight[i][0]
     },
     takeHit: {
-      imageSrc: './asset/img/evilWizard/Take Hit - white silhouette.png',
-      framesMax: 4
+      imageSrc: './asset/img/' + fgt + '/Take hit.png',
+      framesMax: fight[i][5]
     },
     death: {
-      imageSrc: './asset/img/evilWizard/Death.png',
-      framesMax: 6
+      imageSrc: './asset/img/' + fgt + '/Death.png',
+      framesMax: fight[i][1]
     }
   },
   attackBox: {
@@ -107,7 +133,7 @@ const enemy = new Fighter({
     x: -50,
     y: 0
   },
-  imageSrc: './asset/img/evilWizard/Idle.png',
+  imageSrc: './asset/img/' + fgt + '/Idle.png',
   framesMax: 4,
   scale: 2.5,
   offset: {
@@ -116,32 +142,32 @@ const enemy = new Fighter({
   },
   sprites: {
     idle: {
-      imageSrc: './asset/img/evilWizard/Idle.png',
-      framesMax: 8
+      imageSrc: './asset/img/' + fgt + '/Idle.png',
+      framesMax: fight[i][4]
     },
     run: {
-      imageSrc: './asset/img/evilWizard/Run.png',
-      framesMax: 8
+      imageSrc: './asset/img/' + fgt + '/Run.png',
+      framesMax: fight[i][6]
     },
     jump: {
-      imageSrc: './asset/img/evilWizard/Jump.png',
-      framesMax: 2
+      imageSrc: './asset/img/' + fgt + '/Jump.png',
+      framesMax: fight[i][2]
     },
     fall: {
-      imageSrc: './asset/img/evilWizard/Fall.png',
-      framesMax: 2
+      imageSrc: './asset/img/' + fgt + '/Fall.png',
+      framesMax: fight[i][3]
     },
     attack1: {
-      imageSrc: './asset/img/evilWizard/Attack1.png',
-      framesMax: 4
+      imageSrc: './asset/img/' + fgt + '/Attack1.png',
+      framesMax: fight[i][0]
     },
     takeHit: {
-      imageSrc: './asset/img/evilWizard/Take hit.png',
-      framesMax: 3
+      imageSrc: './asset/img/' + fgt + '/Take hit.png',
+      framesMax: fight[i][5]
     },
     death: {
-      imageSrc: './asset/img/evilWizard/Death.png',
-      framesMax: 7
+      imageSrc: './asset/img/' + fgt + '/Death.png',
+      framesMax: fight[i][1]
     }
   },
   attackBox: {
