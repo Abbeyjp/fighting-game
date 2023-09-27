@@ -8,15 +8,17 @@ var currentLocation = window.location;
 
 let params = new URL(currentLocation).searchParams;
 let i = 0;
+let j = 0;
 let nme = searchParams.get('username');
 let fgt = searchParams.get('room');
+let fgt1 = searchParams.get('room1');
 console.log(fgt);
 let fight = [[8, 7, 2, 2, 8, 3, 8], [7, 7, 3, 3, 10, 3, 8], [7, 9, 3, 3, 11, 4, 8], [6, 6, 2, 2, 4, 4, 8], [6, 11, 3, 3, 10, 3, 8]];
-window.tranfer(fgt);
+window.tranfer(fgt, fgt1);
 
 
 //Selecting the avatar
-function tranfer(b) {
+function tranfer(b, a) {
 
   switch (b) {
     case "evilwizard":
@@ -33,6 +35,24 @@ function tranfer(b) {
       break;
     case "wizard":
       i = 4;
+      break;
+  }
+
+  switch (a) {
+    case "evilwizard":
+      j = 0;
+      break;
+    case "fantasywarrior":
+      j = 1;
+      break;
+    case "heroknight":
+      j = 2;
+      break;
+    case "martialhero":
+      j = 3;
+      break;
+    case "wizard":
+      j = 4;
       break;
   }
 
@@ -73,7 +93,7 @@ const player = new Fighter({
     x: 0,
     y: 0
   },
-  imageSrc: './asset/img/' + fgt + '/Idle.png',
+  imageSrc: './asset/img/' + fgt1 + '/Idle.png',
   framesMax: 4,
   scale: 2.5,
   offset: {
@@ -82,60 +102,60 @@ const player = new Fighter({
   },
   sprites: {
     idle: {
-      imageSrc: './asset/img/' + fgt + '/Idle.png',
-      framesMax: fight[i][4]
+      imageSrc: './asset/img/' + fgt1 + '/Idle.png',
+      framesMax: fight[j][4]
     },
     run: {
-      imageSrc: './asset/img/' + fgt + '/Run.png',
-      framesMax: fight[i][6]
+      imageSrc: './asset/img/' + fgt1 + '/Run.png',
+      framesMax: fight[j][6]
     },
     jump: {
-      imageSrc: './asset/img/' + fgt + '/Jump.png',
-      framesMax: fight[i][2]
+      imageSrc: './asset/img/' + fgt1 + '/Jump.png',
+      framesMax: fight[j][2]
     },
     fall: {
-      imageSrc: './asset/img/' + fgt + '/Fall.png',
-      framesMax: fight[i][3]
+      imageSrc: './asset/img/' + fgt1 + '/Fall.png',
+      framesMax: fight[j][3]
     },
     attack1: {
-      imageSrc: './asset/img/' + fgt + '/Attack1.png',
-      framesMax: fight[i][0]
+      imageSrc: './asset/img/' + fgt1 + '/Attack1.png',
+      framesMax: fight[j][0]
     },
     takeHit: {
-      imageSrc: './asset/img/' + fgt + '/Take hit.png',
-      framesMax: fight[i][5]
+      imageSrc: './asset/img/' + fgt1 + '/Take hit.png',
+      framesMax: fight[j][5]
     },
     death: {
-      imageSrc: './asset/img/' + fgt + '/Death.png',
-      framesMax: fight[i][1]
+      imageSrc: './asset/img/' + fgt1 + '/Death.png',
+      framesMax: fight[j][1]
     },
     idlem: {
-      imageSrc: './asset/img/' + fgt + '/Idlem.png',
-      framesMax: fight[i][4]
+      imageSrc: './asset/img/' + fgt1 + '/Idlem.png',
+      framesMax: fight[j][4]
     },
     runm: {
-      imageSrc: './asset/img/' + fgt + '/Runm.png',
-      framesMax: fight[i][6]
+      imageSrc: './asset/img/' + fgt1 + '/Runm.png',
+      framesMax: fight[j][6]
     },
     jumpm: {
-      imageSrc: './asset/img/' + fgt + '/Jumpm.png',
-      framesMax: fight[i][2]
+      imageSrc: './asset/img/' + fgt1 + '/Jumpm.png',
+      framesMax: fight[j][2]
     },
     fallm: {
-      imageSrc: './asset/img/' + fgt + '/Fallm.png',
-      framesMax: fight[i][3]
+      imageSrc: './asset/img/' + fgt1 + '/Fallm.png',
+      framesMax: fight[j][3]
     },
     attack1m: {
-      imageSrc: './asset/img/' + fgt + '/Attack1m.png',
-      framesMax: fight[i][0]
+      imageSrc: './asset/img/' + fgt1 + '/Attack1m.png',
+      framesMax: fight[j][0]
     },
     takeHitm: {
-      imageSrc: './asset/img/' + fgt + '/Take hitm.png',
-      framesMax: fight[i][5]
+      imageSrc: './asset/img/' + fgt1 + '/Take hitm.png',
+      framesMax: fight[j][5]
     },
     deathm: {
-      imageSrc: './asset/img/' + fgt + '/Deathm.png',
-      framesMax: fight[i][1]
+      imageSrc: './asset/img/' + fgt1 + '/Deathm.png',
+      framesMax: fight[j][1]
     }
   },
   attackBox: {
