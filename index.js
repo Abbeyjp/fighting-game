@@ -1,6 +1,6 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
-
+//Setting the resolution
 canvas.width = 1024
 canvas.height = 576
 const searchParams = new URLSearchParams(window.location.search);
@@ -15,7 +15,7 @@ let fight = [[8, 7, 2, 2, 8, 3, 8], [7, 7, 3, 3, 10, 3, 8], [7, 9, 3, 3, 11, 4, 
 window.tranfer(fgt);
 
 
-
+//Selecting the avatar
 function tranfer(b) {
 
   switch (b) {
@@ -39,8 +39,9 @@ function tranfer(b) {
 }
 c.fillRect(0, 0, canvas.width, canvas.height)
 
-const gravity = 0.7
+const gravity = 0.7 //gravity
 
+//background, player & enemy object constructor class
 const background = new Sprite({
   position: {
     x: 0,
@@ -107,6 +108,34 @@ const player = new Fighter({
     death: {
       imageSrc: './asset/img/' + fgt + '/Death.png',
       framesMax: fight[i][1]
+    },
+    idlem: {
+      imageSrc: './asset/img/' + fgt + '/Idlem.png',
+      framesMax: fight[i][4]
+    },
+    runm: {
+      imageSrc: './asset/img/' + fgt + '/Runm.png',
+      framesMax: fight[i][6]
+    },
+    jumpm: {
+      imageSrc: './asset/img/' + fgt + '/Jumpm.png',
+      framesMax: fight[i][2]
+    },
+    fallm: {
+      imageSrc: './asset/img/' + fgt + '/Fallm.png',
+      framesMax: fight[i][3]
+    },
+    attack1m: {
+      imageSrc: './asset/img/' + fgt + '/Attack1m.png',
+      framesMax: fight[i][0]
+    },
+    takeHitm: {
+      imageSrc: './asset/img/' + fgt + '/Take hitm.png',
+      framesMax: fight[i][5]
+    },
+    deathm: {
+      imageSrc: './asset/img/' + fgt + '/Deathm.png',
+      framesMax: fight[i][1]
     }
   },
   attackBox: {
@@ -133,7 +162,7 @@ const enemy = new Fighter({
     x: -50,
     y: 0
   },
-  imageSrc: './asset/img/' + fgt + '/Idle.png',
+  imageSrc: './asset/img/' + fgt + '/Idlem.png',
   framesMax: 4,
   scale: 2.5,
   offset: {
@@ -167,6 +196,34 @@ const enemy = new Fighter({
     },
     death: {
       imageSrc: './asset/img/' + fgt + '/Death.png',
+      framesMax: fight[i][1]
+    },
+    idlem: {
+      imageSrc: './asset/img/' + fgt + '/Idlem.png',
+      framesMax: fight[i][4]
+    },
+    runm: {
+      imageSrc: './asset/img/' + fgt + '/Runm.png',
+      framesMax: fight[i][6]
+    },
+    jumpm: {
+      imageSrc: './asset/img/' + fgt + '/Jumpm.png',
+      framesMax: fight[i][2]
+    },
+    fallm: {
+      imageSrc: './asset/img/' + fgt + '/Fallm.png',
+      framesMax: fight[i][3]
+    },
+    attack1m: {
+      imageSrc: './asset/img/' + fgt + '/Attack1m.png',
+      framesMax: fight[i][0]
+    },
+    takeHitm: {
+      imageSrc: './asset/img/' + fgt + '/Take hitm.png',
+      framesMax: fight[i][5]
+    },
+    deathm: {
+      imageSrc: './asset/img/' + fgt + '/Deathm.png',
       framesMax: fight[i][1]
     }
   },
@@ -217,37 +274,53 @@ function animate() {
 
   if (keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -5
-    player.switchSprite('run')
+    player.switchSprite('runm')
   } else if (keys.d.pressed && player.lastKey === 'd') {
     player.velocity.x = 5
     player.switchSprite('run')
+  } else if (!keys.d.pressed && !keys.a.pressed && player.lastKey === 'd') {
+    player.switchSprite('idle')
+  } else if (!keys.d.pressed && !keys.a.pressed && player.lastKey === 'd') {
+    player.switchSprite('idlem')
   } else {
     player.switchSprite('idle')
   }
 
   // jumping
-  if (player.velocity.y < 0) {
+  if (player.velocity.y < 0 && player.lastKey === 'd') {
     player.switchSprite('jump')
-  } else if (player.velocity.y > 0) {
+  } else if (player.velocity.y > 0 && player.lastKey === 'd') {
     player.switchSprite('fall')
+  } else if (player.velocity.y > 0 && player.lastKey === 'a') {
+    player.switchSprite('fallm')
+  } else if (player.velocity.y < 0 && player.lastKey === 'a') {
+    player.switchSprite('jumpm')
   }
 
   // Enemy movement
   if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
     enemy.velocity.x = -5
-    enemy.switchSprite('run')
+    enemy.switchSprite('runm')
   } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
     enemy.velocity.x = 5
     enemy.switchSprite('run')
-  } else {
+  } else if (!keys.ArrowRight.pressed && !keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowRight') {
     enemy.switchSprite('idle')
+  } else if (!keys.ArrowRight.pressed && !keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
+    enemy.switchSprite('idlem')
+  } else {
+    enemy.switchSprite('idlem')
   }
 
   // jumping
-  if (enemy.velocity.y < 0) {
+  if (player.velocity.y < 0 && player.lastKey === 'ArrowRight') {
     enemy.switchSprite('jump')
-  } else if (enemy.velocity.y > 0) {
+  } else if (enemy.velocity.y > 0 && player.lastKey === 'ArrowLeft') {
     enemy.switchSprite('fall')
+  } else if (enemy.velocity.y > 0 && player.lastKey === 'ArrowRight') {
+    enemy.switchSprite('fallm')
+  } else if (enemy.velocity.y < 0 && player.lastKey === 'ArrowRight') {
+    enemy.switchSprite('jumpm')
   }
 
   // detect for collision & enemy gets hit

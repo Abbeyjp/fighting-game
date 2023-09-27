@@ -167,6 +167,13 @@ class Fighter extends Sprite {
           this.framesCurrent = 0
         }
         break
+      case 'idlem':
+        if (this.image !== this.sprites.idlem.image) {
+          this.image = this.sprites.idlem.image
+          this.framesMax = this.sprites.idlem.framesMax
+          this.framesCurrent = 0
+        }
+        break
       case 'run':
         if (this.image !== this.sprites.run.image) {
           this.image = this.sprites.run.image
@@ -174,10 +181,33 @@ class Fighter extends Sprite {
           this.framesCurrent = 0
         }
         break
+      case 'runm':
+        if (this.image !== this.sprites.runm.image) {
+          this.image = this.sprites.runm.image
+          this.framesMax = this.sprites.runm.framesMax
+          this.framesCurrent = 0
+        }
+        break
       case 'jump':
         if (this.image !== this.sprites.jump.image) {
           this.image = this.sprites.jump.image
           this.framesMax = this.sprites.jump.framesMax
+          this.framesCurrent = 0
+        }
+        break
+
+      case 'fallm':
+        if (this.image !== this.sprites.fallm.image) {
+          this.image = this.sprites.fallm.image
+          this.framesMax = this.sprites.fallm.framesMax
+          this.framesCurrent = 0
+        }
+        break
+
+      case 'jumpm':
+        if (this.image !== this.sprites.jumpm.image) {
+          this.image = this.sprites.jumpm.image
+          this.framesMax = this.sprites.jumpm.framesMax
           this.framesCurrent = 0
         }
         break
@@ -210,6 +240,29 @@ class Fighter extends Sprite {
         if (this.image !== this.sprites.death.image) {
           this.image = this.sprites.death.image
           this.framesMax = this.sprites.death.framesMax
+          this.framesCurrent = 0
+        }
+        break
+      case 'attack1m':
+        if (this.image !== this.sprites.attack1m.image) {
+          this.image = this.sprites.attack1m.image
+          this.framesMax = this.sprites.attack1m.framesMax
+          this.framesCurrent = 0
+        }
+        break
+
+      case 'takeHitm':
+        if (this.image !== this.sprites.takeHitm.image) {
+          this.image = this.sprites.takeHitm.image
+          this.framesMax = this.sprites.takeHitm.framesMax
+          this.framesCurrent = 0
+        }
+        break
+
+      case 'deathm':
+        if (this.image !== this.sprites.deathm.image) {
+          this.image = this.sprites.deathm.image
+          this.framesMax = this.sprites.deathm.framesMax
           this.framesCurrent = 0
         }
         break
